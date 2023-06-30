@@ -10,6 +10,18 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
+// Enable session persistence
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
+
+// Check for authentication on each protected page
+firebase.auth().onAuthStateChanged(function(user) {
+  if (!user) {
+    // Redirect to login page if user is not authenticated
+    window.location.href = "index.html";
+  }
+});
+
+
 function login() {
   var email = document.getElementById("username").value;
   var password = document.getElementById("password").value;
