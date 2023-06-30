@@ -17,7 +17,7 @@ firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION);
 firebase.auth().onAuthStateChanged(function(user) {
   if (!user) {
     // Redirect to login page if user is not authenticated
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 });
 
